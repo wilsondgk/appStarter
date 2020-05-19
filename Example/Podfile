@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AppStarter_Example' do
+  pod 'AppStarter', :path => '../'
+
+  target 'AppStarter_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
