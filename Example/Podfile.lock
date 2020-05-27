@@ -1,0 +1,16 @@
+PODS:
+  - AppStarter (0.1.0)
+
+DEPENDENCIES:
+  - AppStarter (from `../`)
+
+EXTERNAL SOURCES:
+  AppStarter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AppStarter: e3a8b92fda27b36043fa1f883c0293aa765e84c4
+
+PODFILE CHECKSUM: 9ffa9150cd8b3117e54f3a42a6100252abfa78d9
+
+COCOAPODS: 1.6.2

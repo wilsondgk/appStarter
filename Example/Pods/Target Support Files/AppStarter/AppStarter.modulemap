@@ -1,0 +1,6 @@
+framework module AppStarter {
+  umbrella header "AppStarter-umbrella.h"
+
+  export *
+  module * { export * }
+}
