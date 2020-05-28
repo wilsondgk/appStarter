@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/atacadapp/AppStarter'
+  s.homepage         = 'https://github.com/wilsondgk/appStarter'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'atacadapp' => 'wilsondgk@gmail.com' }
-  s.source           = { :git => 'https://github.com/atacadapp/AppStarter.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/wilsondgk/appStarter.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
