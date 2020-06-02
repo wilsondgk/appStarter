@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'AppStarter_Example' do
   pod 'AppStarter', :path => '../'
+#  pod 'AppStarter', :git => 'https://github.com/wilsondgk/appStarter.git', :tag => '0.1.0'
 
   target 'AppStarter_Tests' do
     inherit! :search_paths

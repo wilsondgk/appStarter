@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of AppStarter.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/atacadapp/AppStarter",
+  "homepage": "https://github.com/wilsondgk/appStarter",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,17 @@
     "atacadapp": "wilsondgk@gmail.com"
   },
   "source": {
-    "git": "https://github.com/atacadapp/AppStarter.git",
+    "git": "https://github.com/wilsondgk/appStarter.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "AppStarter/Classes/**/*"
+  "source_files": "AppStarter/Classes/**/*",
+  "swift_version": "5.0",
+  "dependencies": {
+    "Moya": [
+      "~> 14.0"
+    ]
+  }
 }
