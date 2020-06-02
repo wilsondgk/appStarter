@@ -2,6 +2,9 @@ PODS:
   - Alamofire (5.2.1)
   - AppStarter (0.1.0):
     - Moya (~> 14.0)
+  - Kingfisher (5.14.0):
+    - Kingfisher/Core (= 5.14.0)
+  - Kingfisher/Core (5.14.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -9,10 +12,12 @@ PODS:
 
 DEPENDENCIES:
   - AppStarter (from `../`)
+  - Kingfisher
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Kingfisher
     - Moya
 
 EXTERNAL SOURCES:
@@ -22,8 +27,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   AppStarter: edcb7393e7d45c7e9f501f88d27d33c0cb46877a
+  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
 
-PODFILE CHECKSUM: 34eca67d8a5e7b4e93197820fcf2ed4581c43f62
+PODFILE CHECKSUM: 08fe84c568e38c68773b67232fb9df62575d5350
 
 COCOAPODS: 1.6.2

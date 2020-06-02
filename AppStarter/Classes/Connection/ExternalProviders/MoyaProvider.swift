@@ -19,11 +19,15 @@ extension Data {
     }
 }
 
-class MoyaApiProvider: ApiProviderProtocol {
+public class MoyaApiProvider: ApiProviderProtocol {
     
     let provider: MoyaProvider<Connection> = MoyaProvider()
     
-    func makeRequest<SuccessModel, ErrorModel>(withRequestParams requestParams: HTTPRequestParamsProtocol, completion: @escaping (Response<SuccessModel, ErrorModel>) -> Void) where SuccessModel : Decodable, ErrorModel : Decodable {
+    public init() {
+        
+    }
+    
+    public func makeRequest<SuccessModel, ErrorModel>(withRequestParams requestParams: HTTPRequestParamsProtocol, completion: @escaping (Response<SuccessModel, ErrorModel>) -> Void) where SuccessModel : Decodable, ErrorModel : Decodable {
         provider.request(.moyaRequest(request: requestParams)) { (result) in
             
             
@@ -136,6 +140,6 @@ private extension String {
     }
 }
 
-struct EmptyStruct: Decodable {
+public struct EmptyStruct: Decodable {
     
 }

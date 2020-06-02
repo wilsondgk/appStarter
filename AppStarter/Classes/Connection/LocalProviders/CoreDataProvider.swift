@@ -20,7 +20,7 @@ public class CoreDataProvider: LocalApiProtocol {
     
     let context: NSManagedObjectContext
     
-    init(withContext context: NSManagedObjectContext) {
+    public init(withContext context: NSManagedObjectContext) {
         self.context = context
     }
     

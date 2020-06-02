@@ -48,6 +48,10 @@ class AppButton: UIButton {
         commonInit()
     }
     
+    public func setColorProvider(_ provider: AppColorsProtocol) {
+        self.colorProvider = provider
+    }
+    
     func commonInit() {
         self.layer.cornerRadius = self.frame.height / 2
         switch self.type {

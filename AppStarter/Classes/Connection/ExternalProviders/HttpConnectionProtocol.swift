@@ -6,17 +6,17 @@
 //  Copyright © 2020 Wilson Kim. All rights reserved.
 //
 
-enum Response<SuccessModel: Decodable, ErrorModel: Decodable> {
+public enum Response<SuccessModel: Decodable, ErrorModel: Decodable> {
     case success(SuccessModel)
     case failure(ErrorModel?, Error)
 }
 
-protocol ApiProviderProtocol: class {
+public protocol ApiProviderProtocol: class {
     func makeRequest<SuccessModel: Decodable, ErrorModel: Decodable>(withRequestParams requestParams: HTTPRequestParamsProtocol,
                                                                      completion: @escaping(Response<SuccessModel, ErrorModel>) -> Void)
 }
 
-protocol HTTPRequestParamsProtocol {
+public protocol HTTPRequestParamsProtocol {
     var url: String { get set }
     var method: HTTPMethod { get set }
     var query: [String: Any]? { get set }
@@ -25,7 +25,7 @@ protocol HTTPRequestParamsProtocol {
     var body: [String: Any]? { get set }
 }
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case options = "OPTIONS"
     case get     = "GET"
     case head    = "HEAD"

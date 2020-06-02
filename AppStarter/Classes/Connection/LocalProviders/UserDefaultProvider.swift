@@ -8,27 +8,27 @@
 
 import Foundation
 
-protocol UserDefaultProviderProtocol {
+public protocol UserDefaultProviderProtocol {
     func setValue<T: Encodable>(_ value: T, forKey key: String)
     func getValue<T: Decodable>(forKey key: String) -> T?
     func deleteObject(forKey key: String)
 }
 
-class UserDefaultProvider {
+public class UserDefaultProvider {
     
-    static let shared = UserDefaultProvider()
+    public static let shared = UserDefaultProvider()
     private let userDefaults = UserDefaults.standard
     
     private init() {}
     
-    func setValue<T: Encodable>(_ value: T, forKey key: String) {
+    public func setValue<T: Encodable>(_ value: T, forKey key: String) {
         let jsonEncoder = JSONEncoder()
         let data = try? jsonEncoder.encode(value)
         userDefaults.set(data, forKey: key)
         userDefaults.synchronize()
     }
     
-    func getValue<T: Decodable>(forKey key: String) -> T? {
+    public func getValue<T: Decodable>(forKey key: String) -> T? {
         
         guard let data = userDefaults.data(forKey: key) else {
             return nil
@@ -37,7 +37,7 @@ class UserDefaultProvider {
         return resultDecoded
     }
     
-    func deleteObject(forKey key: String) {
+    public func deleteObject(forKey key: String) {
         userDefaults.set(nil, forKey: key)
     }
 }

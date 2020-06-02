@@ -11,34 +11,34 @@ import CoreData
 
 typealias ActionTuple = (title: String, style: UIAlertAction.Style?, action: ((UIAlertAction) -> Void)?)
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
     
     let errorView = ErrorView(frame: CGRect.zero)
     let loadingView = LoadingView(frame: CGRect.zero)
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
     }
     
-    func setNormalLayout() {
+    public func setNormalLayout() {
         errorView.removeFromSuperview()
         loadingView.removeFromSuperview()
     }
     
-    func showError(_ error: Error?) {
+    public func showError(_ error: Error?) {
         showError(error, onView: nil)
     }
     
-    func showError(_ error: Error?, title: String? = nil) {
+    public func showError(_ error: Error?, title: String? = nil) {
         showError(error, onView: nil, title: title)
     }
     
-    func showError(_ error:Error?, onView view:UIView? = nil, title: String? = nil) {
+    public func showError(_ error:Error?, onView view:UIView? = nil, title: String? = nil) {
         showErrorView(getErrorMessageFrom(error: error), aView: view ?? self.view, title: title ?? getErrorTitleFrom(error: error))
     }
     
-    func getErrorMessageFrom(error: Error?) -> String {
+    public func getErrorMessageFrom(error: Error?) -> String {
         if let error = error {
             return error.localizedDescription
         } else {
@@ -46,7 +46,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func getErrorTitleFrom(error: Error?) -> String {
+    public func getErrorTitleFrom(error: Error?) -> String {
         if let error = error {
             return "Código de Erro: \(error._code)"
         } else {
@@ -54,7 +54,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func showErrorView(_ message:String, aView:UIView, title: String) {
+    public func showErrorView(_ message:String, aView:UIView, title: String) {
         errorView.title.text = title
         errorView.message.text = message
         hideLoading()
@@ -73,7 +73,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func showErrorAlert(_ error:Error?) {
+    public func showErrorAlert(_ error:Error?) {
         showAlert(_title: getErrorTitleFrom(error: error), _message: getErrorMessageFrom(error: error))
     }
     
@@ -81,17 +81,17 @@ class BaseViewController: UIViewController {
         showAlert(title: "Erro de parseamento", message: "Erro de parseamento. Favor contactar o administrador do aplicativo", withButtonsAndActions: nil)
     }
     
-    func showAlert(_title:String, _message:String) {
+    public func showAlert(_title:String, _message:String) {
         showAlert(title: _title, message: _message, withButtonsAndActions: nil)
     }
     
-    func setRetryErrorBlock(_ errorBlock:@escaping () -> Void) {
+    public func setRetryErrorBlock(_ errorBlock:@escaping () -> Void) {
         errorView.setCompletion {
             errorBlock()
         }
     }
     
-    func hideErrorView() {
+    public func hideErrorView() {
         errorView.removeFromSuperview()
     }
     
@@ -99,11 +99,11 @@ class BaseViewController: UIViewController {
         return NSError(domain: bundle, code:7779, userInfo:[ NSLocalizedDescriptionKey: message])
     }
     
-    func showLoading(withMessage message: String) {
+    public func showLoading(withMessage message: String) {
         showLoadingInView(nil, withMessage: message)
     }
     
-    func showLoadingInView(_ aView:UIView? = nil, withMessage message:String? = nil) {
+    public func showLoadingInView(_ aView:UIView? = nil, withMessage message:String? = nil) {
         let containerView: UIView = aView == nil ? self.view : aView!
         hideErrorView()
         loadingView.setLoadingMessage(message)
@@ -122,7 +122,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func hideLoading() {
+    public func hideLoading() {
         loadingView.removeFromSuperview()
     }
     

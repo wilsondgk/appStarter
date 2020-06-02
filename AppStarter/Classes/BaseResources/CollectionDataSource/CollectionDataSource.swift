@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionDataSource<Provider: CollectionDataProvider, Cell: UICollectionViewCell>: NSObject,
+open class CollectionDataSource<Provider: CollectionDataProvider, Cell: UICollectionViewCell>: NSObject,
 UICollectionViewDelegate,
 UICollectionViewDataSource
 where Cell: ConfigurableCell, Provider.T == Cell.T {
@@ -19,7 +19,7 @@ where Cell: ConfigurableCell, Provider.T == Cell.T {
     private let collectionView: UICollectionView
     private var dataSourceScrollViewDelegate: UIScrollViewDelegate?
     
-    init(collectionView: UICollectionView, provider: Provider) {
+    public init(collectionView: UICollectionView, provider: Provider) {
         self.collectionView = collectionView
         self.provider = provider
         super.init()
@@ -69,11 +69,11 @@ where Cell: ConfigurableCell, Provider.T == Cell.T {
     
     //MARK: ScrollViewDelegate
     
-    func setScrollViewDelegate(_ delegate: UIScrollViewDelegate) {
+    public func setScrollViewDelegate(_ delegate: UIScrollViewDelegate) {
         dataSourceScrollViewDelegate = delegate
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         dataSourceScrollViewDelegate?.scrollViewDidScroll?(collectionView)
     }
 }

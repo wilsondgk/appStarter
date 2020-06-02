@@ -8,55 +8,55 @@
 
 import Foundation
 
-struct Request: HTTPRequestParamsProtocol {
-    var url: String
-    var method: HTTPMethod
-    var query: [String: Any]?
-    var path: String?
-    var header: [String: Any]?
-    var body: [String: Any]?
+public struct Request: HTTPRequestParamsProtocol {
+    public var url: String
+    public var method: HTTPMethod
+    public var query: [String: Any]?
+    public var path: String?
+    public var header: [String: Any]?
+    public var body: [String: Any]?
 }
 
-class RequestBuilder {
+public class RequestBuilder {
     
-    var url: String
-    var method: HTTPMethod
-    var query: [String: Any]?
-    var path: String?
-    var header: [String: Any]?
-    var body: [String: Any]?
+    private var url: String
+    private var method: HTTPMethod
+    private var query: [String: Any]?
+    private var path: String?
+    private var header: [String: Any]?
+    private var body: [String: Any]?
     
-    init(withUrl url: String, andMethod method: HTTPMethod) {
+    public init(withUrl url: String, andMethod method: HTTPMethod) {
         self.url = url
         self.method = method
     }
     
-    func withQuery(_ query: [String: Any]) -> RequestBuilder {
+    public func withQuery(_ query: [String: Any]) -> RequestBuilder {
         self.query = query
         return self
     }
     
-    func withPath(_ path: String) -> RequestBuilder {
+    public func withPath(_ path: String) -> RequestBuilder {
         self.path = path
         return self
     }
     
-    func withHeader(_ header: [String: Any]) -> RequestBuilder {
+    public func withHeader(_ header: [String: Any]) -> RequestBuilder {
         self.header = header
         return self
     }
     
-    func addHeader(key: String, value: String) -> RequestBuilder {
+    public func addHeader(key: String, value: String) -> RequestBuilder {
         self.header?[key] = value
         return self
     }
     
-    func withBody(_ body: [String: Any]) -> RequestBuilder {
+    public func withBody(_ body: [String: Any]) -> RequestBuilder {
         self.body = body
         return self
     }
     
-    func create() -> Request {
+    public func create() -> Request {
         return Request(url: url,
                        method: method,
                        query: query,

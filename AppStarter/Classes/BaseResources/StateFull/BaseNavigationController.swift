@@ -8,9 +8,15 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+public class BaseNavigationController: UINavigationController {
     
-    public var colorProvider: AppColorsProtocol = AppColorsDefault()
+    private var colorProvider: AppColorsProtocol = AppColorsDefault()
+    
+    
+    
+    public func setColorProvider(_ provider: AppColorsProtocol) {
+        self.colorProvider = provider
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()

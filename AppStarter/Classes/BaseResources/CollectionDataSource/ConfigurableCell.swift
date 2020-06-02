@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ConfigurableCell: ReusableCell {
+public protocol ConfigurableCell: ReusableCell {
     associatedtype T
     func bind(_ item: T, at indexPath: IndexPath)
 }

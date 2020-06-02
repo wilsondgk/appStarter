@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AppColorsProtocol {
+public protocol AppColorsProtocol {
     var mainColor: UIColor { get }
     var secondaryColor: UIColor { get }
 }
